@@ -1,0 +1,9 @@
+<h1>Amin's Portfolio</h1>
+
+{% for pr in projects %}
+
+<h2>{{ pr.title }}</h2>
+<p>{{ pr.description }} </p><br>
+<img src="{{ pr.image.url}}" alt="" width=200px height=270px> <br> 
+
+{% endfor %}
