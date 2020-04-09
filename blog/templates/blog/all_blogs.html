@@ -1,12 +1,14 @@
-<h1>This my Blog </h1>
-<h2>Amin's has Written {{ blogs.count }} blogs</h2>
+{% extends 'portfolio/base.html' %}
+{% block content %}
 
+    <h1>Blog</h1>
+    <h2>{{ blogs.count }} blogs by Amin</h2>
+    {% for blg in blogs %}
+    <a href= "{% url 'blog:detail' blg.id%}" ><h2>{{blg.title}}</h2></a>
+    <p>{{blg.description|striptags|truncatechars:90}}</p>
+    <img src="{{ blg.image.url}}" alt="" width=200px height=270px> <br> 
+    <p>{{blg.p_date}}</p>
 
-
-{% for blg in blogs %}
-<a href= "{% url 'blog:detail' blg.id%}" ><h2>{{blg.title}}</h2></a>
-<p>{{blg.description}}</p>
-<img src="{{ blg.image.url}}" alt="" width=200px height=270px> <br> 
-<p>{{blg.p_date}}</p>
-
-{% endfor %}
+    {% endfor %}
+    
+{% endblock  %}

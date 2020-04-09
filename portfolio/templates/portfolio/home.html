@@ -1,14 +1,23 @@
-{% load static %}
-<h1>Amin's Portfolio</h1>
-<a href = " {% url 'blog:all_blogs' %} "><h2>Blogs</h2></a>
-<a href = " {% url 'blog:all_blogs' %} "><h2>Resume</h2></a>
+{% extends 'portfolio/base.html' %}
 
-<img src=" {% static 'portfolio/me.jpg' %} "> <br> 
-{% for pr in projects %}
+{% block content %}
 
-<h2>{{ pr.title }}</h2>
-<p>{{ pr.description }} </p>
-<br>
-<img src="{{ pr.image.url}}" alt="" width=200px height=270px> <br> 
+    <h1>Amin's Portfolio</h1>
+    {% load static %}
 
-{% endfor %}
+    <a href = " {% url 'blog:all_blogs' %} ">Blogs</a>
+    <a href = " {% url 'blog:all_blogs' %} ">Resume</a>
+
+    <img src=" {% static 'portfolio/me.jpg' %} "> <br> 
+    {% for pr in projects %}
+
+    <h2>{{ pr.title }}</h2>
+    <p>{{ pr.description }} </p>
+    <br>
+    <img src="{{ pr.image.url}}" alt="" width=200px height=270px> <br> 
+
+    {% endfor %}
+
+
+
+{% endblock  %}

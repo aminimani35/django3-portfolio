@@ -9,4 +9,9 @@ class Blog(models.Model):
     url = models.URLField('لینک',blank=True)
     p_date = models.DateField("تاریخ",auto_now=True)
 
+
+    def __str__(self):
+        return self.title
+    
+
 # Create your models here.
